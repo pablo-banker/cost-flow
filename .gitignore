@@ -1,0 +1,51 @@
+# Dependencies
+node_modules/
+
+# Build
+dist/
+build/
+.out/
+
+# TypeScript
+*.tsbuildinfo
+
+# Tests
+coverage/
+
+# Environment variables
+.env
+.env.*
+!.env.example
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# IDEs
+.idea/
+.vscode/
+*.iml
+
+# macOS
+.DS_Store
+
+# Serverless
+.serverless/
+.esbuild/
+
+# LocalStack
+.localstack/
+
+# Temporary files
+tmp/
+temp/
+.cache/
+
+# OS / editor temporary files
+*.swp
+*.swo
+*~

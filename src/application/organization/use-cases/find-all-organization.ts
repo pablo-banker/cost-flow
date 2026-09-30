@@ -20,9 +20,7 @@ export class FindAllOrganization {
         return this.formalize(organizations);
     }
 
-    private formalize(
-        organizations: Organization[],
-    ): FindAllOrganizationOutput[] {
+    private formalize(organizations: Organization[]): FindAllOrganizationOutput[] {
         return organizations.map((organization) => ({
             id: organization.organizationId,
             name: organization.organizationName.name,
