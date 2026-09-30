@@ -3,14 +3,14 @@ import {buildSuccessResponse} from "@entrypoints/http/response";
 import {mapErrorToHttp} from "@entrypoints/http/error-mapper";
 import type {FindByNameOrganization} from "@application/organization/use-cases/find-by-name-organization";
 
-type FindByNameOrganizationRequest = {
+type FindByNameOrganizationParams = {
     name: string;
-}
+};
 
 export function findByNameOrganizationHandler(findByNameOrganization: FindByNameOrganization) {
-    return async (request: FastifyRequest<{ Body: FindByNameOrganizationRequest}>, reply: FastifyReply) => {
+    return async (request: FastifyRequest<{ Params: FindByNameOrganizationParams }>, reply: FastifyReply) => {
         try {
-            const organization = await findByNameOrganization.execute({name: request.body.name});
+            const organization = await findByNameOrganization.execute({name: request.params.name});
 
             return reply
                 .status(200)

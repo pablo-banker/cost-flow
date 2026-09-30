@@ -302,7 +302,7 @@ describe('Organization routes', () => {
                 },
             });
 
-            expect(response.statusCode).toBe(200);
+            expect(response.statusCode).toBe(201);
 
             expect(response.json()).toEqual({
                 success: true,
