@@ -15,6 +15,8 @@ export const appDataSource = new DataSource({
     entities: [
         OrganizationOrmEntity
     ],
-    migrations: [],
+    migrations: [
+        'src/infrastructure/persistence/typeorm/migrations/*.ts',
+    ],
     logging: false,
 });

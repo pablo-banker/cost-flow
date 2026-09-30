@@ -1,19 +1,26 @@
+import {appDataSource} from "@infrastructure/persistence/typeorm/data-source";
+import {getAppConfig} from "@config/env";
 import {buildAppModule} from "@modules/app.module";
 
-async function main() {
-    const app = buildAppModule()
+async function bootstrap(): Promise<void> {
+    const config = getAppConfig();
 
-    try {
-        await app.server.listen({
-            port: 3000,
-            host: '0.0.0.0'
-        });
+    await appDataSource.initialize();
 
-        console.log(`Server started on port 3000`);
-    } catch (err) {
-        console.error(err);
-        process.exit(1);
-    }
+    const app = await buildAppModule({
+        persistence: {
+            driver: 'typeorm',
+            dataSource: appDataSource,
+        },
+    });
+
+    await app.server.listen({
+        port: config.port,
+        host: '0.0.0.0',
+    });
 }
 
-main();
+bootstrap().catch(error => {
+    console.error(error);
+    process.exit(1);
+});

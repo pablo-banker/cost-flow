@@ -7,12 +7,13 @@ import {
 } from 'vitest';
 
 import { buildAppModule } from '@modules/app.module';
+import {randomUUID} from "node:crypto";
 
 describe('Organization routes', () => {
-    let app: ReturnType<typeof buildAppModule>;
+    let app: Awaited<ReturnType<typeof buildAppModule>>;
 
-    beforeEach(() => {
-        app = buildAppModule({
+    beforeEach(async () => {
+        app = await buildAppModule({
             persistence: {
                 driver: 'memory',
             },
@@ -233,7 +234,7 @@ describe('Organization routes', () => {
         it('should return 404 when organization does not exist', async () => {
             const response = await app.server.inject({
                 method: 'GET',
-                url: '/organizations/non-existing-id',
+                url: `/organizations/${randomUUID()}`,
             });
 
             expect(response.statusCode).toBe(404);

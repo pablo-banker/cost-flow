@@ -3,6 +3,56 @@ import {buildSuccessResponse} from "@entrypoints/http/response";
 import {mapErrorToHttp} from "@entrypoints/http/error-mapper";
 import type {FindByIdOrganization} from "@application/organization/use-cases/find-by-id-organization";
 
+import {errorSchema, organizationSchema} from '@entrypoints/http/schemas';
+
+export const findByIdOrganizationSchema = {
+    tags: ['Organizations'],
+
+    summary: 'Find organization by id',
+
+    description:
+        'Returns an organization using its identifier.',
+
+    params: {
+        type: 'object',
+
+        properties: {
+            id: {
+                type: 'string',
+                format: 'uuid',
+                description:
+                    'Organization identifier',
+            },
+        },
+
+        required: [
+            'id',
+        ],
+    },
+
+    response: {
+        200: {
+            type: 'object',
+
+            properties: {
+                success: {
+                    type: 'boolean',
+                },
+
+                data: organizationSchema,
+            },
+
+            required: [
+                'success',
+                'data',
+            ],
+        },
+
+        400: errorSchema,
+        404: errorSchema,
+    },
+} as const;
+
 type FindByIdOrganizationParams = {
     id: string;
 };

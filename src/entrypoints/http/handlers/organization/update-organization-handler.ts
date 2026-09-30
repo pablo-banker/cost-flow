@@ -3,6 +3,79 @@ import {buildSuccessResponse} from "@entrypoints/http/response";
 import {mapErrorToHttp} from "@entrypoints/http/error-mapper";
 import type {UpdateOrganization} from "@application/organization/use-cases/update-organization";
 
+
+import {
+    errorSchema,
+    organizationSchema,
+} from '@entrypoints/http/schemas';
+
+export const updateOrganizationSchema = {
+    tags: ['Organizations'],
+
+    summary: 'Update organization',
+
+    description:
+        'Updates an existing organization.',
+
+    params: {
+        type: 'object',
+
+        properties: {
+            id: {
+                type: 'string',
+                format: 'uuid',
+                description:
+                    'Organization identifier',
+            },
+        },
+
+        required: [
+            'id',
+        ],
+    },
+
+    body: {
+        type: 'object',
+
+        properties: {
+            name: {
+                type: 'string',
+                minLength: 3,
+                maxLength: 150,
+                description:
+                    'New organization name',
+            },
+        },
+
+        required: [
+            'name',
+        ],
+    },
+
+    response: {
+        200: {
+            type: 'object',
+
+            properties: {
+                success: {
+                    type: 'boolean',
+                },
+
+                data: organizationSchema,
+            },
+
+            required: [
+                'success',
+                'data',
+            ],
+        },
+
+        400: errorSchema,
+        404: errorSchema,
+        409: errorSchema,
+    },
+} as const;
+
 type UpdateOrganizationParams = {
     id: string;
 };
