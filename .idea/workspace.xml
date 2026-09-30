@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="1763ae86-8fd5-4e3b-9648-be598524fee4" name="Changes" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="TypeScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="McpProjectServerCommands">
+    <commands />
+    <urls />
+  </component>
+  <component name="NextEditCompletionFeaturesState">
+    <decayedCancelled>
+      <entry key="MS100" value="1.3480271170374596E-16" />
+      <entry key="MS500" value="6.697916448196276E-4" />
+      <entry key="S2" value="0.16087365591265881" />
+      <entry key="S5" value="0.48149742906725024" />
+      <entry key="S10" value="0.6939001578521583" />
+      <entry key="S30" value="0.8853173908581915" />
+      <entry key="S60" value="0.9409145070935991" />
+      <entry key="M2" value="0.9739159146493506" />
+      <entry key="M5" value="1.5492611777751106" />
+      <entry key="M10" value="4.052851780285653" />
+      <entry key="M15" value="6.402437008902487" />
+      <entry key="M30" value="10.574540071262627" />
+      <entry key="H1" value="13.758190996405924" />
+      <entry key="H2" value="17.05279437776338" />
+      <entry key="H4" value="45.37544736405743" />
+      <entry key="D1" value="399.6627925707304" />
+      <entry key="W1" value="615.5921164577848" />
+    </decayedCancelled>
+    <decayedSelected>
+      <entry key="MS100" value="1.0000000000368383" />
+      <entry key="MS500" value="1.00818963372462" />
+      <entry key="S2" value="1.318902016445496" />
+      <entry key="S5" value="1.8798076485776674" />
+      <entry key="S10" value="2.48484975219996" />
+      <entry key="S30" value="3.3199395275432257" />
+      <entry key="S60" value="3.6304775774802986" />
+      <entry key="M2" value="3.807169676253266" />
+      <entry key="M5" value="3.939778966603075" />
+      <entry key="M10" value="4.0978290795608565" />
+      <entry key="M15" value="4.240051263839327" />
+      <entry key="M30" value="4.50309703268384" />
+      <entry key="H1" value="4.713160515068388" />
+      <entry key="H2" value="5.256257086642093" />
+      <entry key="H4" value="13.123385111182113" />
+      <entry key="D1" value="108.63877930660728" />
+      <entry key="W1" value="165.77385272366186" />
+    </decayedSelected>
+    <decayedShown>
+      <entry key="MS100" value="0.006524124371508945" />
+      <entry key="MS500" value="0.3700028641907498" />
+      <entry key="S2" value="1.193388632987561" />
+      <entry key="S5" value="2.1822096521035506" />
+      <entry key="S10" value="3.054616367321219" />
+      <entry key="S30" value="4.147992384211382" />
+      <entry key="S60" value="4.5398078415440875" />
+      <entry key="M2" value="4.764445003515252" />
+      <entry key="M5" value="5.48171234784659" />
+      <entry key="M10" value="8.145998959943457" />
+      <entry key="M15" value="10.638751124177478" />
+      <entry key="M30" value="15.075226971946591" />
+      <entry key="H1" value="18.469940463144336" />
+      <entry key="H2" value="22.308200485556405" />
+      <entry key="H4" value="58.497569904473" />
+      <entry key="D1" value="508.2996214047207" />
+      <entry key="W1" value="781.3655399947295" />
+    </decayedShown>
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 2,
+  "fromUser": false
+}]]></component>
+  <component name="ProjectId" id="3K0pJ74VRfY6Rps9uMrvJCOAdE8" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.MCP Project settings loaded": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "Vitest.CreateOrganization.executor": "Run",
+    "Vitest.CreateOrganization.should create a valid organization.executor": "Run",
+    "Vitest.CreateOrganization.should fail to create an organization with invalid data.executor": "Run",
+    "Vitest.FindAllOrganization.executor": "Run",
+    "Vitest.Organization routes.executor": "Run",
+    "Vitest.Organization.executor": "Run",
+    "Vitest.OrganizationName.equals method returns false for different names.executor": "Run",
+    "Vitest.OrganizationName.executor": "Run",
+    "Vitest.POST /organizations.executor": "Run",
+    "Vitest.Tests in tests/.executor": "Run",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "javascript.preferred.runtime.type.id": "node",
+    "last_opened_file_path": "/Users/pablobanker/Developer/projects/cost-flow/src/entrypoints/http/handlers",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.jshint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.jshint": "",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.lookFeel",
+    "ts.external.directory.path": "/Users/pablobanker/Library/Caches/JetBrains/WebStorm2026.2/ts-go-native-preview/v7.0.0-dev.jetbrains.20260702.4/node_modules/@typescript/native-preview-darwin-arm64/lib"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/entrypoints/http/handlers" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/application/ports/repositories" />
+      <recent name="$PROJECT_DIR$/src/entrypoints/http" />
+      <recent name="$PROJECT_DIR$/src/entrypoints/http/handlers" />
+      <recent name="$PROJECT_DIR$/src/infrastructure/persistence/memory/repositories" />
+      <recent name="$PROJECT_DIR$/src/infrastructure/persistence/memory" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Vitest.Organization routes">
+    <configuration name="CreateOrganization" type="JavaScriptTestRunnerVitest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <vitest-package value="$PROJECT_DIR$/node_modules/vitest" />
+      <working-dir value="$PROJECT_DIR$" />
+      <vitest-options value="--run" />
+      <envs />
+      <scope-kind value="SUITE" />
+      <test-file value="$PROJECT_DIR$/tests/unit/application/organization/create-organization.test.ts" />
+      <test-names>
+        <test-name value="CreateOrganization" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="FindAllOrganization" type="JavaScriptTestRunnerVitest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <vitest-package value="$PROJECT_DIR$/node_modules/vitest" />
+      <working-dir value="$PROJECT_DIR$" />
+      <vitest-options value="--run" />
+      <envs />
+      <scope-kind value="SUITE" />
+      <test-file value="$PROJECT_DIR$/tests/unit/application/organization/find-by-id-organization.test.ts" />
+      <test-names>
+        <test-name value="FindAllOrganization" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="Organization routes" type="JavaScriptTestRunnerVitest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <vitest-package value="$PROJECT_DIR$/node_modules/vitest" />
+      <working-dir value="$PROJECT_DIR$" />
+      <vitest-options value="--run" />
+      <envs />
+      <scope-kind value="SUITE" />
+      <test-file value="$PROJECT_DIR$/tests/e2e/http/organization-routes.e2e.test.ts" />
+      <test-names>
+        <test-name value="Organization routes" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="POST /organizations" type="JavaScriptTestRunnerVitest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <vitest-package value="$PROJECT_DIR$/node_modules/vitest" />
+      <working-dir value="$PROJECT_DIR$" />
+      <vitest-options value="--run" />
+      <envs />
+      <scope-kind value="SUITE" />
+      <test-file value="$PROJECT_DIR$/tests/e2e/http/create-organization.e2e.test.ts" />
+      <test-names>
+        <test-name value="POST /organizations" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="Tests in tests/" type="JavaScriptTestRunnerVitest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <vitest-package value="$PROJECT_DIR$/node_modules/vitest" />
+      <working-dir value="$PROJECT_DIR$" />
+      <vitest-options value="--run" />
+      <envs />
+      <scope-kind value="DIRECTORY" />
+      <test-directory value="$PROJECT_DIR$/tests" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Vitest.Organization routes" />
+        <item itemvalue="Vitest.FindAllOrganization" />
+        <item itemvalue="Vitest.CreateOrganization" />
+        <item itemvalue="Vitest.Tests in tests/" />
+        <item itemvalue="Vitest.POST /organizations" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-d6986cc7102b-4abd2a77f808-JavaScript-WS-262.9437.145" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="1763ae86-8fd5-4e3b-9648-be598524fee4" name="Changes" comment="" />
+      <created>1787607192104</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1787607192104</updated>
+      <workItem from="1787607195209" duration="67000" />
+      <workItem from="1790704265317" duration="19817000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
