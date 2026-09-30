@@ -1,0 +1,118 @@
+services:
+  postgres:
+    image: postgres:17-alpine
+    container_name: costflow-postgres
+    restart: unless-stopped
+
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+
+    ports:
+      - "${POSTGRES_PORT}:5432"
+
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+    healthcheck:
+      test:
+        [
+          "CMD-SHELL",
+          "pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB}"
+        ]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+      start_period: 5s
+
+    networks:
+      - costflow-network
+
+
+  valkey:
+    image: valkey/valkey:8-alpine
+    container_name: costflow-valkey
+    restart: unless-stopped
+
+    ports:
+      - "${VALKEY_PORT}:6379"
+
+    volumes:
+      - valkey_data:/data
+
+    command:
+      - valkey-server
+      - --appendonly
+      - "yes"
+
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "valkey-cli",
+          "ping"
+        ]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+      start_period: 5s
+
+    networks:
+      - costflow-network
+
+
+  localstack:
+    image: localstack/localstack:latest
+    container_name: costflow-localstack
+    restart: unless-stopped
+
+    ports:
+      - "${LOCALSTACK_PORT}:4566"
+
+    environment:
+      AWS_DEFAULT_REGION: ${AWS_REGION}
+
+      AWS_ACCESS_KEY_ID: ${AWS_ACCESS_KEY_ID}
+      AWS_SECRET_ACCESS_KEY: ${AWS_SECRET_ACCESS_KEY}
+
+      SERVICES: s3,sqs,lambda,apigateway,iam,sts,logs,cloudwatch
+
+      DEBUG: ${LOCALSTACK_DEBUG}
+      PERSISTENCE: "1"
+
+      DOCKER_HOST: unix:///var/run/docker.sock
+
+    volumes:
+      - localstack_data:/var/lib/localstack
+
+      # Necessário futuramente para executar Lambda localmente.
+      - /var/run/docker.sock:/var/run/docker.sock
+
+      # Scripts executados quando o LocalStack estiver pronto.
+      - ./docker/localstack/init:/etc/localstack/init/ready.d
+
+    healthcheck:
+      test:
+        [
+          "CMD-SHELL",
+          "curl -f http://localhost:4566/_localstack/health || exit 1"
+        ]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+      start_period: 10s
+
+    networks:
+      - costflow-network
+
+
+volumes:
+  postgres_data:
+  valkey_data:
+  localstack_data:
+
+
+networks:
+  costflow-network:
+    driver: bridge
