@@ -1,7 +1,8 @@
+name: cost-flow
+
 services:
   postgres:
     image: postgres:17-alpine
-    container_name: costflow-postgres
     restart: unless-stopped
 
     environment:
@@ -32,7 +33,6 @@ services:
 
   valkey:
     image: valkey/valkey:8-alpine
-    container_name: costflow-valkey
     restart: unless-stopped
 
     ports:
@@ -63,16 +63,16 @@ services:
 
 
   localstack:
-    image: localstack/localstack:latest
-    container_name: costflow-localstack
+    image: localstack/localstack:2026.08
     restart: unless-stopped
 
     ports:
       - "${LOCALSTACK_PORT}:4566"
 
     environment:
-      AWS_DEFAULT_REGION: ${AWS_REGION}
+      LOCALSTACK_AUTH_TOKEN: ${LOCALSTACK_AUTH_TOKEN}
 
+      AWS_DEFAULT_REGION: ${AWS_REGION}
       AWS_ACCESS_KEY_ID: ${AWS_ACCESS_KEY_ID}
       AWS_SECRET_ACCESS_KEY: ${AWS_SECRET_ACCESS_KEY}
 

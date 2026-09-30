@@ -6,6 +6,9 @@
     "moduleResolution": "Bundler",
     "types": [],
 
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+
     "sourceMap": true,
     "declaration": true,
     "declarationMap": true,
@@ -22,6 +25,8 @@
     "noUncheckedSideEffectImports": true,
     "moduleDetection": "force",
     "skipLibCheck": true,
+
+
 
     //Aliases
     "paths": {
