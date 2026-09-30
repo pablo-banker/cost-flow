@@ -17,28 +17,21 @@ export class UpdateOrganization {
     ) {}
 
     async execute(input: UpdateOrganizationInput): Promise<Organization> {
-        const organization = this.prepare(input);
-
         try {
+            const organization = await this.organizationRepository.findById(
+                input.id,
+            );
+
+            organization.rename(input.name);
+
             await this.organizationRepository.update(organization);
+
+            return organization;
         } catch (error) {
             this.handlePersistenceError(error);
         }
-
-        return organization;
     }
 
-    private prepare(input: UpdateOrganizationInput): Organization {
-        const organizationName = new OrganizationName(input.name);
-        const now = new Date();
-
-        return new Organization(
-            input.id,
-            organizationName,
-            now,
-            now,
-        );
-    }
 
     private handlePersistenceError(error: unknown): never {
         if (error instanceof PersistenceNotFoundError) {

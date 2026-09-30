@@ -10,8 +10,8 @@ export type HttpModule = {
     server: FastifyInstance;
 }
 
-export function buildHttpModule(dependencies: HttpModuleDependencies): HttpModule {
-    const server = buildServer(dependencies);
+export async function buildHttpModule(dependencies: HttpModuleDependencies): Promise<HttpModule> {
+    const server = await buildServer(dependencies);
 
     return {
         server,

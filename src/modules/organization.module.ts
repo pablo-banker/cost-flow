@@ -1,11 +1,13 @@
 import type {OrganizationRepository} from "@application/ports/repositories/organization-repository";
 
-import {FindAllOrganization} from "@application/organization/use-cases/find-all-organization";
-import {FindByIdOrganization} from "@application/organization/use-cases/find-by-id-organization";
-import {FindByNameOrganization} from "@application/organization/use-cases/find-by-name-organization";
-import {CreateOrganization} from "@application/organization/use-cases/create-organization";
-import {UpdateOrganization} from "@application/organization/use-cases/update-organization";
-import {DeleteOrganization} from "@application/organization/use-cases/delete-organization";
+import {
+    CreateOrganization,
+    DeleteOrganization,
+    FindAllOrganization,
+    FindByIdOrganization,
+    FindByNameOrganization,
+    UpdateOrganization,
+} from '@application/organization/use-cases';
 
 type OrganizationModuleDependencies = {
     organizationRepository: OrganizationRepository;

@@ -50,8 +50,7 @@ describe('FindAllOrganization', () => {
 
         expect(
             organizations.map(
-                organization =>
-                    organization.organizationName.name,
+                organization => organization.name,
             ),
         ).toEqual([
             'Organization A',

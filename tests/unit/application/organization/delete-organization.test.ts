@@ -41,12 +41,10 @@ describe('DeleteOrganization', () => {
             id: organization.organizationId,
         });
 
-        const deletedOrganization =
-            await repository.findById(
-                organization.organizationId,
-            );
+        const organizations =
+            await repository.findAll();
 
-        expect(deletedOrganization).toBeNull();
+        expect(organizations).toEqual([]);
     });
 
     it('should fail when organization does not exist', async () => {

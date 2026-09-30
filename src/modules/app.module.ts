@@ -7,14 +7,14 @@ type AppModuleDependencies = {
 };
 
 
-export function buildAppModule({ persistence }: AppModuleDependencies = {}) {
+export async function buildAppModule({ persistence }: AppModuleDependencies = {}) {
     const persistenceModule = buildPersistenceModule(persistence);
 
     const organizationModule = buildOrganizationModule({
         organizationRepository: persistenceModule.organizationRepository
     });
 
-    const httpModule = buildHttpModule({
+    const httpModule = await buildHttpModule({
         organization: organizationModule
     });
 

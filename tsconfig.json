@@ -6,6 +6,9 @@
     "moduleResolution": "Bundler",
     "types": [],
 
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+
     "sourceMap": true,
     "declaration": true,
     "declarationMap": true,
@@ -23,6 +26,8 @@
     "moduleDetection": "force",
     "skipLibCheck": true,
 
+
+
     //Aliases
     "paths": {
       "@application/*": ["./src/application/*"],
@@ -30,7 +35,8 @@
       "@infrastructure/*": ["./src/infrastructure/*"],
       "@entrypoints/*": ["./src/entrypoints/*"],
       "@shared/*": ["./src/shared/*"],
-      "@modules/*": ["./src/modules/*"]
+      "@modules/*": ["./src/modules/*"],
+      "@config/*": ["./src/config/*"]
     }
   }
 }

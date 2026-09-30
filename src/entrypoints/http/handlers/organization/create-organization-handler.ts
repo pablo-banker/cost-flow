@@ -2,6 +2,54 @@ import type {FastifyReply, FastifyRequest} from 'fastify';
 import type {CreateOrganization} from "@application/organization/use-cases/create-organization";
 import {buildSuccessResponse} from "@entrypoints/http/response";
 import {mapErrorToHttp} from "@entrypoints/http/error-mapper";
+import {organizationSchema, errorSchema} from "@entrypoints/http/schemas";
+
+export const createOrganizationSchema = {
+    tags: ['Organizations'],
+
+    summary: 'Create organization',
+
+    description:
+        'Creates a new organization.',
+
+    body: {
+        type: 'object',
+
+        properties: {
+            name: {
+                type: 'string',
+                description:
+                    'Organization name',
+            },
+        },
+
+        required: [
+            'name',
+        ],
+    },
+
+    response: {
+        201: {
+            type: 'object',
+
+            properties: {
+                success: {
+                    type: 'boolean',
+                },
+
+                data: organizationSchema,
+            },
+
+            required: [
+                'success',
+                'data',
+            ],
+        },
+
+        400: errorSchema,
+        409: errorSchema,
+    },
+} as const;
 
 type CreateOrganizationRequest = {
     name: string;
