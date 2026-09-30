@@ -329,7 +329,7 @@ describe('Organization routes', () => {
         it('should return 404 when organization does not exist', async () => {
             const response = await app.server.inject({
                 method: 'PUT',
-                url: '/organizations/non-existing-id',
+                url: `/organizations/${randomUUID()}`,
                 payload: {
                     name: 'New Name',
                 },
@@ -429,7 +429,7 @@ describe('Organization routes', () => {
         it('should return 404 when organization does not exist', async () => {
             const response = await app.server.inject({
                 method: 'DELETE',
-                url: '/organizations/non-existing-id',
+                url: `/organizations/${randomUUID()}`,
             });
 
             expect(response.statusCode).toBe(404);

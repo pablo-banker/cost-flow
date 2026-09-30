@@ -18,8 +18,6 @@ export const createOrganizationSchema = {
         properties: {
             name: {
                 type: 'string',
-                minLength: 3,
-                maxLength: 150,
                 description:
                     'Organization name',
             },

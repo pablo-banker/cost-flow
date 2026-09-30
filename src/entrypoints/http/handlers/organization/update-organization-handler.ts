@@ -40,8 +40,6 @@ export const updateOrganizationSchema = {
         properties: {
             name: {
                 type: 'string',
-                minLength: 3,
-                maxLength: 150,
                 description:
                     'New organization name',
             },
