@@ -18,10 +18,14 @@ const statusCodeByErrorKind = {
     FORBIDDEN: 403,
 } as const;
 
-export function mapErrorToHttp(error: unknown): HttpError {
+export function mapErrorToHttp(
+    error: unknown,
+): HttpError {
     if (error instanceof AppError) {
         return {
-            statusCode: statusCodeByErrorKind[error.kind],
+            statusCode:
+                statusCodeByErrorKind[error.kind],
+
             body: buildErrorResponse(
                 error.code,
                 error.message,

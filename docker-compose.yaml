@@ -76,12 +76,14 @@ services:
       AWS_ACCESS_KEY_ID: ${AWS_ACCESS_KEY_ID}
       AWS_SECRET_ACCESS_KEY: ${AWS_SECRET_ACCESS_KEY}
 
-      SERVICES: s3,sqs,lambda,apigateway,iam,sts,logs,cloudwatch
+      SERVICES: s3,sqs,lambda,apigateway,iam,sts,logs,cloudwatch,cloudformation,ssm
 
       DEBUG: ${LOCALSTACK_DEBUG}
       PERSISTENCE: "1"
 
       DOCKER_HOST: unix:///var/run/docker.sock
+
+      LAMBDA_DOCKER_NETWORK: costflow-network
 
     volumes:
       - localstack_data:/var/lib/localstack
@@ -115,4 +117,5 @@ volumes:
 
 networks:
   costflow-network:
+    name: costflow-network
     driver: bridge

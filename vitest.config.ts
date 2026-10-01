@@ -1,13 +1,18 @@
-import { defineConfig } from 'vitest/config';
+import {
+    configDefaults,
+    defineConfig,
+} from 'vitest/config';
 
 export default defineConfig({
     resolve: {
         tsconfigPaths: true,
     },
+
     test: {
         exclude: [
+            ...configDefaults.exclude,
             'tests/integration/**',
-            'node_modules/**',
+            '.serverless/**',
         ],
     },
 });

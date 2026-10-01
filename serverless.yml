@@ -1,0 +1,81 @@
+service: cost-flow
+
+frameworkVersion: '4'
+
+provider:
+  name: aws
+  runtime: nodejs22.x
+  region: ${env:AWS_REGION, 'us-east-1'}
+  stage: ${opt:stage, 'local'}
+
+  environment:
+    NODE_ENV: ${sls:stage}
+    DATABASE_URL: ${env:LAMBDA_DATABASE_URL}
+    DATABASE_POOL_SIZE: ${env:DATABASE_POOL_SIZE, '5'}
+
+build:
+  esbuild:
+    bundle: true
+    format: cjs
+    external:
+      - pg
+    outExtension:
+      '.js': '.cjs'
+
+functions:
+  health:
+    handler: src/entrypoints/lambda/system/health.handler
+    events:
+      - http:
+          path: health
+          method: get
+
+  createOrganization:
+    handler: src/entrypoints/lambda/organization/create-organization.handler
+    events:
+      - http:
+          path: organizations
+          method: post
+
+  findAllOrganizations:
+    handler: src/entrypoints/lambda/organization/find-all-organization.handler
+    events:
+      - http:
+          path: organizations
+          method: get
+
+  findOrganizationById:
+    handler: src/entrypoints/lambda/organization/find-by-id-organization.handler
+    events:
+      - http:
+          path: organizations/{id}
+          method: get
+
+  findOrganizationByName:
+    handler: src/entrypoints/lambda/organization/find-by-name-organization.handler
+    events:
+      - http:
+          path: organizations/name/{name}
+          method: get
+
+  updateOrganization:
+    handler: src/entrypoints/lambda/organization/update-organization.handler
+    events:
+      - http:
+          path: organizations/{id}
+          method: put
+
+  deleteOrganization:
+    handler: src/entrypoints/lambda/organization/delete-organization.handler
+    events:
+      - http:
+          path: organizations/{id}
+          method: delete
+
+plugins:
+  - serverless-localstack
+
+custom:
+  localstack:
+    stages:
+      - local
