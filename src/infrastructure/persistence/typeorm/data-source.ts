@@ -3,9 +3,12 @@ import 'reflect-metadata';
 import {DataSource} from 'typeorm';
 
 import {getConfig} from '@config/config';
-
 import {getAppSecrets} from '@infrastructure/aws/secrets/secrets-manager';
-import {OrganizationOrmEntity} from '@infrastructure/persistence/typeorm/entities/organization.orm-entity';
+
+import {
+    OrganizationOrmEntity,
+    UnitOrmEntity
+} from '@infrastructure/persistence/typeorm/entities/';
 
 let appDataSourcePromise: Promise<DataSource> | undefined;
 
@@ -30,6 +33,7 @@ export async function createTypeOrmDataSource(): Promise<DataSource> {
 
         entities: [
             OrganizationOrmEntity,
+            UnitOrmEntity
         ],
 
         migrations: [

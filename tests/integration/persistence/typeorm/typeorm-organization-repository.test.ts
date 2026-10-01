@@ -28,9 +28,11 @@ describe('TypeOrmOrganizationRepository', () => {
         await queryRunner.connect();
         await queryRunner.startTransaction();
 
-        await queryRunner.query(
-            `TRUNCATE TABLE "organizations"`,
-        );
+        await queryRunner.query(`
+            TRUNCATE TABLE "units", "organizations"
+            RESTART IDENTITY
+            CASCADE
+        `);
 
         const typeOrmRepository = queryRunner.manager.getRepository(OrganizationOrmEntity,);
         repository = new TypeOrmOrganizationRepository(typeOrmRepository);

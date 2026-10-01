@@ -1,4 +1,4 @@
-import type {ErrorKind} from "@shared/errors/error-kind";
+import type {ErrorKind} from "@shared/error-kind";
 
 export abstract class AppError extends Error {
     constructor(

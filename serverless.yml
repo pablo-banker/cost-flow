@@ -83,6 +83,48 @@ functions:
           path: organizations/{id}
           method: delete
 
+  createUnit:
+    handler: src/entrypoints/lambda/unit/create-unit.handler
+    events:
+      - http:
+          path: organizations/{organizationId}/units
+          method: post
+
+  findAllUnits:
+    handler: src/entrypoints/lambda/unit/find-all-units.handler
+    events:
+      - http:
+          path: organizations/{organizationId}/units
+          method: get
+
+  findUnitById:
+    handler: src/entrypoints/lambda/unit/find-by-id-unit.handler
+    events:
+      - http:
+          path: organizations/{organizationId}/units/{id}
+          method: get
+
+  findUnitByName:
+    handler: src/entrypoints/lambda/unit/find-by-name-unit.handler
+    events:
+      - http:
+          path: organizations/{organizationId}/units/name/{name}
+          method: get
+
+  updateUnit:
+    handler: src/entrypoints/lambda/unit/update-unit.handler
+    events:
+      - http:
+          path: organizations/{organizationId}/units/{id}
+          method: put
+
+  deleteUnit:
+    handler: src/entrypoints/lambda/unit/delete-unit.handler
+    events:
+      - http:
+          path: organizations/{organizationId}/units/{id}
+          method: delete
+
 plugins:
   - serverless-localstack
 

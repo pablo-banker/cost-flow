@@ -13,5 +13,7 @@ export default defineConfig({
         include: [
             'tests/integration/**/*.test.ts',
         ],
+
+        fileParallelism: false,
     },
 });
