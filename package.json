@@ -4,7 +4,6 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "tsx watch src/main.ts",
     "test": "vitest",
     "test:run": "vitest run",
     "test:integration": "vitest run -c vitest.integration.config.ts",
