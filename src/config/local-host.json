@@ -1,0 +1,29 @@
+{
+  "app": {
+    "nodeEnv": "development"
+  },
+  "database": {
+    "host": "localhost",
+    "port": 5432,
+    "name": "costflow",
+    "poolSize": 5
+  },
+  "valkey": {
+    "host": "localhost",
+    "port": 6379
+  },
+  "aws": {
+    "region": "us-east-1",
+    "endpoint": "http://localhost:4566"
+  },
+  "secrets": {
+    "appSecretId": "cost-flow/local/app"
+  },
+  "storage": {
+    "invoiceBucket": "costflow-invoices-local"
+  },
+  "queues": {
+    "invoiceProcessing": "costflow-invoice-processing",
+    "invoiceProcessingDlq": "costflow-invoice-processing-dlq"
+  }
+}

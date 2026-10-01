@@ -4,6 +4,7 @@
     // Environment Settings
     "module": "ESNext",
     "moduleResolution": "Bundler",
+    "resolveJsonModule": true,
     "types": [],
 
     "experimentalDecorators": true,
@@ -25,7 +26,6 @@
     "noUncheckedSideEffectImports": true,
     "moduleDetection": "force",
     "skipLibCheck": true,
-
 
 
     //Aliases

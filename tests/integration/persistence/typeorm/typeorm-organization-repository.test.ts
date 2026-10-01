@@ -2,23 +2,24 @@ import { randomUUID } from 'node:crypto';
 
 import {afterAll, afterEach, beforeAll, beforeEach, describe, expect, it} from 'vitest';
 
-import type { QueryRunner } from 'typeorm';
+import type { QueryRunner, DataSource } from 'typeorm';
 
 import {PersistenceConflictError, PersistenceNotFoundError} from '@application/ports/repositories/persistence-errors';
 
 import { Organization } from '@domain/organization/entities/organization';
 import { OrganizationName } from '@domain/organization/value-objects/organization-name';
 
-import { appDataSource } from '@infrastructure/persistence/typeorm/data-source';
+import {  getAppDataSource } from '@infrastructure/persistence/typeorm/data-source';
 import { OrganizationOrmEntity } from '@infrastructure/persistence/typeorm/entities/organization.orm-entity';
 import { TypeOrmOrganizationRepository } from '@infrastructure/persistence/typeorm/repositories/typeorm-organization-repository';
 
 describe('TypeOrmOrganizationRepository', () => {
+    let appDataSource: DataSource;
     let queryRunner: QueryRunner;
     let repository: TypeOrmOrganizationRepository;
 
     beforeAll(async () => {
-        await appDataSource.initialize();
+        appDataSource = await getAppDataSource();
     });
 
     beforeEach(async () => {

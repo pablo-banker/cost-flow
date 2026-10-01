@@ -1,0 +1,29 @@
+{
+  "app": {
+    "nodeEnv": "production"
+  },
+  "database": {
+    "host": "CHANGE_ME_PROD_DATABASE_HOST",
+    "port": 5432,
+    "name": "costflow",
+    "poolSize": 10
+  },
+  "valkey": {
+    "host": "CHANGE_ME_PROD_VALKEY_HOST",
+    "port": 6379
+  },
+  "aws": {
+    "region": "us-east-1",
+    "endpoint": null
+  },
+  "secrets": {
+    "appSecretId": "cost-flow/prod/app"
+  },
+  "storage": {
+    "invoiceBucket": "costflow-invoices-prod"
+  },
+  "queues": {
+    "invoiceProcessing": "costflow-invoice-processing-prod",
+    "invoiceProcessingDlq": "costflow-invoice-processing-dlq-prod"
+  }
+}

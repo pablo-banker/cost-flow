@@ -1,4 +1,4 @@
-import {appDataSource} from '@infrastructure/persistence/typeorm/data-source';
+import {getAppDataSource} from '@infrastructure/persistence/typeorm/data-source';
 
 import {buildPersistenceModule} from '@modules/persistence.module';
 import {buildOrganizationModule, type OrganizationModule} from '@modules/organization.module';
@@ -10,13 +10,15 @@ export async function getOrganizationModule(): Promise<OrganizationModule> {
         return organizationModule;
     }
 
-    if (!appDataSource.isInitialized) {
-        await appDataSource.initialize();
+    const dataSource = await getAppDataSource();
+
+    if (!dataSource.isInitialized) {
+        await dataSource.initialize();
     }
 
     const persistenceModule = buildPersistenceModule({
         driver: 'typeorm',
-        dataSource: appDataSource,
+        dataSource: dataSource,
     });
 
     organizationModule = buildOrganizationModule({

@@ -7,11 +7,11 @@
     "test": "vitest",
     "test:run": "vitest run",
     "test:integration": "vitest run -c vitest.integration.config.ts",
-    "typeorm": "tsx ./node_modules/typeorm/cli.js",
-    "migration:generate": "sh -c 'tsx ./node_modules/typeorm/cli.js migration:generate src/infrastructure/persistence/typeorm/migrations/$1 -d src/infrastructure/persistence/typeorm/data-source.ts' --",
-    "migration:run": "tsx ./node_modules/typeorm/cli.js migration:run -d src/infrastructure/persistence/typeorm/data-source.ts",
-    "migration:revert": "tsx ./node_modules/typeorm/cli.js migration:revert -d src/infrastructure/persistence/typeorm/data-source.ts",
-    "migration:show": "tsx ./node_modules/typeorm/cli.js migration:show -d src/infrastructure/persistence/typeorm/data-source.ts"
+    "typeorm": "APP_ENV=local-host tsx ./node_modules/typeorm/cli.js",
+    "migration:generate": "sh -c 'APP_ENV=local-host tsx ./node_modules/typeorm/cli.js migration:generate src/infrastructure/persistence/typeorm/migrations/$1 -d src/infrastructure/persistence/typeorm/migration-data-source.ts' --",
+    "migration:run": "APP_ENV=local-host tsx ./node_modules/typeorm/cli.js migration:run -d src/infrastructure/persistence/typeorm/migration-data-source.ts",
+    "migration:revert": "APP_ENV=local-host tsx ./node_modules/typeorm/cli.js migration:revert -d src/infrastructure/persistence/typeorm/migration-data-source.ts",
+    "migration:show": "APP_ENV=local-host tsx ./node_modules/typeorm/cli.js migration:show -d src/infrastructure/persistence/typeorm/migration-data-source.ts"
   },
   "type": "module",
   "keywords": [],
@@ -28,9 +28,9 @@
   },
   "dependencies": {
     "@aws-sdk/client-s3": "^3.1143.0",
+    "@aws-sdk/client-secrets-manager": "^3.1144.0",
     "@aws-sdk/client-sqs": "^3.1143.0",
     "@aws-sdk/s3-request-presigner": "^3.1143.0",
-    "dotenv": "^18.0.5",
     "ioredis": "^5.11.1",
     "pg": "^8.23.1",
     "reflect-metadata": "^0.2.2",

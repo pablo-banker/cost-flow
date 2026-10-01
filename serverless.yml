@@ -5,20 +5,31 @@ frameworkVersion: '4'
 provider:
   name: aws
   runtime: nodejs22.x
-  region: ${env:AWS_REGION, 'us-east-1'}
+
+  region: ${self:custom.appConfig.aws.region}
   stage: ${opt:stage, 'local'}
 
   environment:
-    NODE_ENV: ${sls:stage}
-    DATABASE_URL: ${env:LAMBDA_DATABASE_URL}
-    DATABASE_POOL_SIZE: ${env:DATABASE_POOL_SIZE, '5'}
+    APP_ENV: ${sls:stage}
+    NODE_ENV: ${self:custom.appConfig.app.nodeEnv}
+
+  iam:
+    role:
+      statements:
+        - Effect: Allow
+          Action:
+            - secretsmanager:GetSecretValue
+          Resource:
+            - arn:aws:secretsmanager:${self:provider.region}:*:secret:${self:custom.appConfig.secrets.appSecretId}*
 
 build:
   esbuild:
     bundle: true
     format: cjs
+
     external:
       - pg
+
     outExtension:
       '.js': '.cjs'
 
@@ -76,6 +87,8 @@ plugins:
   - serverless-localstack
 
 custom:
+  appConfig: ${file(./src/config/${sls:stage}.json)}
+
   localstack:
     stages:
       - local
