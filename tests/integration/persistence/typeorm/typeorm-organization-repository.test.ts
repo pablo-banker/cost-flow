@@ -29,7 +29,7 @@ describe('TypeOrmOrganizationRepository', () => {
         await queryRunner.startTransaction();
 
         await queryRunner.query(`
-            TRUNCATE TABLE "units", "organizations"
+            TRUNCATE TABLE "cost_centers", "units", "organizations"
             RESTART IDENTITY
             CASCADE
         `);

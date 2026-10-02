@@ -1,3 +1,8 @@
+import {InMemoryCostCenterRepository} from '@infrastructure/persistence/memory/repositories/in-memory-cost-center-repository';
+import {TypeOrmCostCenterRepository} from '@infrastructure/persistence/typeorm/repositories/typeorm-cost-center-repository';
+import {CostCenterOrmEntity} from '@infrastructure/persistence/typeorm/entities/cost-center.orm-entity';
+import type {CostCenterRepository} from '@application/ports/repositories/cost-center-repository';
+
 import type {DataSource} from "typeorm";
 
 import {InMemoryOrganizationRepository} from "@infrastructure/persistence/memory/repositories/in-memory-organization-repository";
@@ -21,6 +26,7 @@ export type PersistenceModuleDependencies = {
 export type PersistenceModule = {
     organizationRepository: OrganizationRepository,
     unitRepository: UnitRepository;
+    costCenterRepository: CostCenterRepository;
 }
 
 export function buildPersistenceModule({ driver = 'typeorm', dataSource }: PersistenceModuleDependencies = {}): PersistenceModule {
@@ -28,6 +34,7 @@ export function buildPersistenceModule({ driver = 'typeorm', dataSource }: Persi
         return {
             organizationRepository: new InMemoryOrganizationRepository(),
             unitRepository: new InMemoryUnitRepository(),
+            costCenterRepository: new InMemoryCostCenterRepository(),
         };
     }
 
@@ -38,7 +45,10 @@ export function buildPersistenceModule({ driver = 'typeorm', dataSource }: Persi
     const organizationRepository = new TypeOrmOrganizationRepository(dataSource.getRepository(OrganizationOrmEntity));
     const unitRepository = new TypeOrmUnitRepository(dataSource.getRepository(UnitOrmEntity));
 
+    const costCenterRepository = new TypeOrmCostCenterRepository(dataSource.getRepository(CostCenterOrmEntity));
+
     return {
+        costCenterRepository,
         organizationRepository,
         unitRepository,
     };

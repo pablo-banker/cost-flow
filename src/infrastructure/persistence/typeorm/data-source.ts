@@ -7,7 +7,8 @@ import {getAppSecrets} from '@infrastructure/aws/secrets/secrets-manager';
 
 import {
     OrganizationOrmEntity,
-    UnitOrmEntity
+    CostCenterOrmEntity,
+    UnitOrmEntity,
 } from '@infrastructure/persistence/typeorm/entities/';
 
 let appDataSourcePromise: Promise<DataSource> | undefined;
@@ -33,7 +34,8 @@ export async function createTypeOrmDataSource(): Promise<DataSource> {
 
         entities: [
             OrganizationOrmEntity,
-            UnitOrmEntity
+            CostCenterOrmEntity,
+            UnitOrmEntity,
         ],
 
         migrations: [

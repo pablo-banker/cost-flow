@@ -125,6 +125,55 @@ functions:
           path: organizations/{organizationId}/units/{id}
           method: delete
 
+  createCostCenter:
+    handler: src/entrypoints/lambda/cost-center/create-cost-center.handler
+    events:
+      - http:
+          path: organizations/{organizationId}/units/{unitId}/cost-centers
+          method: post
+
+  findAllCostCenters:
+    handler: src/entrypoints/lambda/cost-center/find-all-cost-centers.handler
+    events:
+      - http:
+          path: organizations/{organizationId}/units/{unitId}/cost-centers
+          method: get
+
+  findCostCenterById:
+    handler: src/entrypoints/lambda/cost-center/find-by-id-cost-center.handler
+    events:
+      - http:
+          path: organizations/{organizationId}/units/{unitId}/cost-centers/{id}
+          method: get
+
+  findCostCenterByCode:
+    handler: src/entrypoints/lambda/cost-center/find-by-code-cost-center.handler
+    events:
+      - http:
+          path: organizations/{organizationId}/units/{unitId}/cost-centers/code/{code}
+          method: get
+
+  findCostCenterByName:
+    handler: src/entrypoints/lambda/cost-center/find-by-name-cost-center.handler
+    events:
+      - http:
+          path: organizations/{organizationId}/units/{unitId}/cost-centers/name/{name}
+          method: get
+
+  updateCostCenter:
+    handler: src/entrypoints/lambda/cost-center/update-cost-center.handler
+    events:
+      - http:
+          path: organizations/{organizationId}/units/{unitId}/cost-centers/{id}
+          method: put
+
+  deleteCostCenter:
+    handler: src/entrypoints/lambda/cost-center/delete-cost-center.handler
+    events:
+      - http:
+          path: organizations/{organizationId}/units/{unitId}/cost-centers/{id}
+          method: delete
+
 plugins:
   - serverless-localstack
 
